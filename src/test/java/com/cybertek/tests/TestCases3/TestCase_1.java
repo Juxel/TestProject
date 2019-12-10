@@ -54,8 +54,6 @@ public class TestCase_1 {
         WebElement submitButton = driver.findElement(By.cssSelector("#_submit"));
         submitButton.click();
 
-
-
         //locate Activities subModule link
         WebElement activities = driver.findElement(By.xpath("(//li[@class='dropdown dropdown-level-1'])[4]"));
 
@@ -87,20 +85,10 @@ public class TestCase_1 {
     //Verify that page number is equals to "1"
     public void getPageNumber() throws InterruptedException {
 
-
-        WebDriverWait wait2 = new WebDriverWait(driver, 100);
+        Thread.sleep(5000);
         WebElement pageNo= driver.findElement(By.cssSelector("input[type='number']"));
-        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='number']")));
+        Thread.sleep(5000);
         Assert.assertEquals(pageNo.getAttribute("value"), "1", "verify that 1 is shown");
         System.out.println(pageNo.getAttribute("value"));
     }
-
-    @Test
-    //Verify that view per page number is equals to "25"
-
-    public void getPerPageNumber(){
-        
-
-    }
-
 }
