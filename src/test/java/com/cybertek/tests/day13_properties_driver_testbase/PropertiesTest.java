@@ -11,6 +11,6 @@ public class PropertiesTest {
 
         System.out.println(ConfigurationReader.get("url"));
         System.out.println(ConfigurationReader.get("salesmanager_username"));
-        System.out.println("store manager"); //configuration properties de store manager olmadigi icin null
+        System.out.println(ConfigurationReader.get("store manager")); //configuration properties de store manager olmadigi icin null
     }
 }
