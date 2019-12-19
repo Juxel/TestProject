@@ -1,6 +1,6 @@
 package com.cybertek.tests.day13_properties_driver_testbase;
 
-import com.cybertek.tests.TestBase;
+import com.cybertek.utilities.TestBase;
 import org.testng.annotations.Test;
 
 public class AnotherLoginTest extends TestBase {

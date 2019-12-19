@@ -1,4 +1,4 @@
-package com.cybertek.tests;
+package com.cybertek.utilities;
 
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;

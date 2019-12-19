@@ -32,5 +32,4 @@ public class LoginPage {
         loginBtn.click();
     }
 
-
 }
