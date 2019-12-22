@@ -9,7 +9,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+/* ©TestBase
+// we collected whatever common to all testcase here. Like  before and after method +
+we created all the necessary objects like “driver”, “action”, “wait” etc.
+inside @before method. We don’t need to copy/paste those anymore,
+when The test classes extend to TestBase class, everything is good to go…
+©BasePage
+// we locate all the common elements and functionalities for all the
+pages/modules here. All other pages that have those functionalities
+will extend BasePage.*/
 public abstract class BasePage {
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
