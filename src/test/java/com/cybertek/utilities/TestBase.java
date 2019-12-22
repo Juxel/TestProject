@@ -8,11 +8,13 @@ import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -57,7 +59,22 @@ public class TestBase {
         driver.manage().window().maximize();
     }
     @AfterMethod
-    public void tearDownMethod() throws InterruptedException {
+    // ITestResult class describes the result of a test in TestNG
+    public void tearDownMethod(ITestResult result) throws InterruptedException, IOException {
+        if(result.getStatus()==ITestResult.FAILURE){
+            //record the name of the failed test case
+            extentLogger.fail(result.getName());
+
+            //take the screenshot and return location (path) of screenshot
+            String screenshotPath= BrowserUtils.getScreenshot(result.getName());
+            extentLogger.addScreenCaptureFromPath(screenshotPath);
+
+            //capture the exception (error, failure in test)
+            extentLogger.fail(result.getThrowable());
+        }else if(result.getStatus()==ITestResult.SKIP){
+            extentLogger.skip("Test Skipped: "+result.getName());
+        }
+        //close the driver
         Thread.sleep(1000);
         Driver.closeDriver();
     }
