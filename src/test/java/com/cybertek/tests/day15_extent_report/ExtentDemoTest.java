@@ -23,9 +23,9 @@ public class ExtentDemoTest {
         report=new ExtentReports();
 
         //create report path
-        System.getProperty("user.dir");//shows our project path
+        System.getProperty("user.dir");//shows our project path in our computer
         String projectPath=System.getProperty("user.dir");
-        String path=projectPath+"/test-output/report.html";
+        String path=projectPath+"/test-output/report.html";//we add our project path static test output folder name
         //String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); -->timeStamp
 
         //initialize the HTML reporter with the report path
@@ -33,7 +33,8 @@ public class ExtentDemoTest {
 
         //attach the HTML report to the report object
         report.attachReporter(htmlReporter);
-        htmlReporter.config().setReportName("Vytrack smoke test");
+
+        htmlReporter.config().setReportName("Vytrack smoke test");//our report name
 
         //set environment information
         report.setSystemInfo("Environment","QA");
@@ -54,12 +55,14 @@ public class ExtentDemoTest {
         extentLogger.info("enter driver info");
         extentLogger.info("click submit");
         extentLogger.info("verify logged in");
+
         //pass()-->marks the test case as passed
         extentLogger.pass("TC342 is passed");
     }
     @AfterMethod
     public void teardown(){
-        //this is when the report is actually created
+        //this is when the report is actually created. we write this code at the end
+        // of all the test cases
         report.flush();
     }
 
