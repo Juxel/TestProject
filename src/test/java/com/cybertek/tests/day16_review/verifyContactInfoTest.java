@@ -1,8 +1,7 @@
-package com.cybertek.tests.day16_screenshot;
+package com.cybertek.tests.day16_review;
 
 import com.cybertek.pages.ContactInfoPage;
 import com.cybertek.pages.ContactsPage;
-import com.cybertek.pages.DashBoardPage;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
